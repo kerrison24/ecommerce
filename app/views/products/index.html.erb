@@ -2,15 +2,3 @@
 <p>
   <%= link_to 'Add a product', new_product_path %>
 </p>
-
-<% @products.each do |product| %>
-  <ul>
-    <li><%= product.title %></li>
-    <li><%= product.description %></li>
-    <% if product.image_url? %><li><%= product.image_url %></li><% end %>
-    <li><%= product.price %></li>
-    <%= link_to 'Edit', edit_product_path(product) %>
-    <%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <a href="#">Add to cart</a>
-  </ul>
-<% end %>

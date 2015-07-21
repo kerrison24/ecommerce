@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  root 'store#index', as: 'store'
 
+  resources :line_items
+  resources :cart
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
