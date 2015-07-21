@@ -1,4 +1,4 @@
-<h1>Products#index</h1>
+<h1>Ecommerce store</h1>
 <p>
   <%= link_to 'Add a product', new_product_path %>
 </p>
@@ -9,6 +9,8 @@
     <li><%= product.description %></li>
     <% if product.image_url? %><li><%= product.image_url %></li><% end %>
     <li><%= product.price %></li>
-    <li><%= link_to 'Edit', edit_product_path(product) %></li>
+    <%= link_to 'Edit', edit_product_path(product) %>
+    <%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <a href="#">Add to cart</a>
   </ul>
 <% end %>
