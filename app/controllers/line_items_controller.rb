@@ -4,7 +4,7 @@ class LineItemsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
+    @line_item = @cart.add_product(product.id)
 
     if @line_item.save
       flash[:message] = 'Item was successfully added.'
@@ -12,5 +12,9 @@ class LineItemsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  def line_item_params
+    params.require(:line_item).permit(:product_id)
   end
 end
