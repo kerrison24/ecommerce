@@ -1,0 +1,26 @@
+<h1>Edit user</h1>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <%= pluralize(@user.errors.count, 'error') %>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :pasword %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
