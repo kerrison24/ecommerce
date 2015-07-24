@@ -1,0 +1,10 @@
+<h1>Orders</h1>
+<%= pluralize(@orders.count, 'order') %><br><br>
+<% @orders.each do |order| %>
+  <%= order.name %><br>
+  <%= order.address %><br>
+  <% order.line_items.each do |item| %>
+    <%= item.quantity %>x
+    <%= @products.find(item.product_id).title %>
+  <% end %>
+<% end %>

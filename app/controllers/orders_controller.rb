@@ -26,6 +26,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def index
+    @orders = Order.all
+    @products = Product.all
+  end
+
   private
     def order_params
       params.require(:order).permit(:name, :address, :pay_type, :email)
